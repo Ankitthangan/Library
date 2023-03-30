@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <table border="1px">
+        <tr>
+        <th>Book Name</th>
+        <th>Book Quantity</th>
+        <th>Book Price</th>
+        <th>Book Author</th>
+        <th>Published</th>
+        <th>is active</th>
+
+    </tr>
+
+    {% for object in object_list %}
+
+        <tr>
+        <td>{{object.name}}</td>
+        <td>{{object.qty}}</td>
+        <td>{{object.price}}</td>
+        <td>{{object.author}}</td>
+        <td>{{object.is_published}}</td>
+        <td>{{object.is_active}}</td>
+    </tr>
+    
+    {% endfor %}
+    </table>
+
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}  
+  
+{% block content %}  
+<li class="nav-item">Name: {{ object.name }}</li>  
+<li class="nav-item">Quantity: {{ object.qty }}</li>  
+<li class="nav-item">Price: {{ object.price }}</li>  
+<li class="nav-item"> Author: {{ object.author }}</li>  
+<li class = "nav-item">is published: {{object.is_published}}</li>
+<li class = "nav-item">is active : {{object.is_active}}</li>
+{% endblock content %}  

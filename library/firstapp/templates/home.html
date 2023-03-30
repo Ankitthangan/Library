@@ -1,0 +1,52 @@
+<html>
+    <head>
+            <title>home page</title>
+    </head>
+
+    
+    <style>
+        .required:before {
+            content:  "*";
+            color: red;
+        }
+    </style>
+
+    <body>
+        <h2>Library Application </h2><hr>
+        <form method="post" action="{% url 'home_page'%}">
+            {% csrf_token %}
+            {% if single_book %}
+            Bid :- <input type="number" name="book_id" value="{{single_book.id}}" readonly><br><br>
+            {% endif %}
+
+            <label class="required">Name :- </label>
+            <input type="text" name="book_name" value="{{single_book.name}}" placeholder="Enter the name of Book"><br><br>
+
+            Quantity :- <input type="number", name="qty" value="{{single_book.qty}}"><br><br>
+            Price :- <input type="number" name="price" value="{{single_book.price}}"><br><br>
+            Authoer Name :- <input type="text" name="author" value="{{single_book.author}}"><br><br>
+
+            {%if single_book %}
+                {% if single_book.is_published == True%}
+                    Is Published :- yes <input type="radio" name= "is_pub" value="yes" checked> No <input type="radio" name= "is_pub" value="No"> <br><br>
+                {%else%}
+                    Is Published :- yes <input type="radio" name="is_pub" value="yes"> No <input type="radio" name="is_pub" value="No" checked> <br> <br>
+                {% endif %}
+            {% else %}
+                Is Published :- Yes <input type="radio" name="is_pub" value="yes"> No <input type="radio" name="is_pub" value="No"><br><br>
+
+            {% endif %}
+            
+            <input type="submit" value="Submit"><br><br>
+
+            <!-- {{name}}    get the name from the get request from views line no :- 25-->
+
+        </form>
+    <a href="{% url 'all_active_books' %}"> Show Active Books</a> <br><br>
+
+    <a href="{% url 'inactive_books'%}">Show Inactive Books</a><br><br>
+
+    <button class= "btn btn-primary" type="submit"> <a href="{% url 'logout_request' %}">Logout</a> </button>
+ 
+    </body>
+</html>

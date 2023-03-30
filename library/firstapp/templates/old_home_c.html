@@ -1,0 +1,42 @@
+<html>
+    <head>
+            <title>home page</title>
+    </head>
+
+    
+    <style>
+        .required:before {
+            content:  "*";
+            color: red;
+        }
+    </style>
+
+    <body>
+        <h2>Library Application </h2><hr>
+        <form>
+            <div class="mb-3">
+              <label  class="form-label">Email address</label>
+              <input type="email" class="form-control" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <input type="password" class="form-control" >
+            </div> 
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input">
+              <label class="form-check-label">Check me out</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    
+    <a href="{% url 'all_active_books' %}"> Show Active Books</a> <br>
+
+    <a href="{% url 'inactive_books'%}">Show Inactive Books</a>
+ 
+
+
+    </body>
+
+
+</html>
